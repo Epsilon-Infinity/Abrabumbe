@@ -26,9 +26,9 @@ def solve_files(dir, solver):
             continue
         print("Solving file :",file)
         inputs = read_file(os.path.join(dir, file))
-        print(inputs)
-        # vehicle_rides = solver(inputs)
-        # with open(os.path.join(result_dir,file+'.sol'), "w") as solution:
+        output = solver(inputs)
+        with open(os.path.join(result_dir,file+'.sol'), "w") as solution:
+            pass
         #     for vehicle, rides in vehicle_rides.items():
         #         solution.write(str(vehicle) + ' ')
         #         solution.write(" ".join([str(i) for i in rides]) + "\n")
