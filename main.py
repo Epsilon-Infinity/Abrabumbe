@@ -1,8 +1,6 @@
 import utils
 from copy import deepcopy
 from collections import defaultdict
-from ride import Ride
-from vehicle import Vehicle
 
 def solver(inputs):
     rides_list = inputs['rides_list']
