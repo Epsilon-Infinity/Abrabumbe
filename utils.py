@@ -7,7 +7,6 @@ import operator
 def readline(file):
     return list(map(int, file.readline().strip().split()))
 
-
 def read_file(file_path):
     with open(file_path) as file:
         n_books,  n_libraries,  days = readline(file)
@@ -19,7 +18,7 @@ def read_file(file_path):
             books = {book: book_scores[book] for book in readline(file)}
             libraries.append(Library(i, books, signup_day, bpd))
 
-        return {'book_scores': book_scores, 'days': days, 'libraries': libraries}
+        return {'book_scores': book_scores, 'days': days, 'libraries': libraries, 'n_books':n_books}
 
 
 def solve_files(dir, solver):
@@ -34,10 +33,7 @@ def solve_files(dir, solver):
         output = solver(inputs)
         with open(os.path.join(result_dir,file+'.sol'), "w") as solution:
             solution.write(str(len(output)) + "\n")
-            books_so_far = set()
             for library in output:
-                
-                sorted_books = [k for k, v in sorted(library.books.items(), key=lambda item: item[1], reverse=True) if k not in books_so_far]
-                books_so_far.update(sorted_books)
+                sorted_books = [k for k, v in sorted(library.books.items(), key=lambda item: item[1], reverse=True)]
                 solution.write(str(library.id) + ' ' + str(len(library.books.items())) + "\n")
                 solution.write(" ".join([str(i) for i in sorted_books]) + "\n")
