@@ -19,6 +19,9 @@ def solver(inputs):
         for book in libraries[0].books.keys():
             books_so_far.add(book)
             if len(books_so_far) == n_books: break
+            
+        if len(books_so_far) == n_books: break
+
         libraries.pop(0)
         days_left -= result[-1].signup_days
         if len(result)%100==0:
