@@ -11,5 +11,5 @@ class Library:
 
         return possible_reward * self.book_p_day / self.signup_days
 
-    def score2(self, books_so_far):
+    def score2(self):
         pass
