@@ -13,7 +13,7 @@ def solver(inputs):
     result = []
 
     while  len(libraries)>0:
-        libraries = sorted(libraries, key=lambda x: x.score(books_so_far))
+        libraries = sorted(libraries, key=lambda x: x.score2(books_so_far), reverse=True)
         result.append(libraries[0])
         for book in libraries[0].books.keys():
             books_so_far.add(book)
