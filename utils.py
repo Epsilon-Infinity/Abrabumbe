@@ -14,7 +14,7 @@ def read_file(file_path):
         for i in range(n_libraries):
             _, signup_day, bpd = readline(file)
             books = {book:book_scores[book] for book in readline(file)}
-            libraries.append(Library(books, signup_day, bpd))
+            libraries.append(Library(i, books, signup_day, bpd))
         return {'book_scores':book_scores, days:'days', 'libraries':libraries}
 
 def solve_files(dir, solver):
