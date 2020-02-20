@@ -1,6 +1,7 @@
 
 import os
 from model import Library
+import operator
 
 def readline(file):
     return list(map(int, file.readline().strip().split()))
@@ -28,7 +29,8 @@ def solve_files(dir, solver):
         inputs = read_file(os.path.join(dir, file))
         output = solver(inputs)
         with open(os.path.join(result_dir,file+'.sol'), "w") as solution:
-            pass
-        #     for vehicle, rides in vehicle_rides.items():
-        #         solution.write(str(vehicle) + ' ')
-        #         solution.write(" ".join([str(i) for i in rides]) + "\n")
+            solution.write(str(len(output)) + "\n")
+            for library in output:
+                sorted_books = [k for k, v in sorted(library.books.items(), key=lambda item: item[1], reverse=True)]
+                solution.write(str(library.id) + ' ' + str(len(library.books.items())) + "\n")
+                solution.write(" ".join([str(i) for i in sorted_books]) + "\n")
